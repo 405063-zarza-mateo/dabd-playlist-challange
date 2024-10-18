@@ -1,1 +1,36 @@
-<span>album list works!</span>
+<!-- @if (albumList$ |async; as resultObject) {
+<div class="container">
+  <div class="card">
+    @for (album of resultObject; track album) {
+    <img src="{{ album.front }}" class="card-img-top" alt="{{ album.name }}" />
+    <div class="card-body">
+      <h5 class="card-title">{{ album.name }}</h5>
+      <p class="card-text">{{ album.createdAt | date : "MMM d, y" }}</p>
+      <button class="btn btn-primary" (click)="playAlbum(album.id)">
+        <i class="fas fa-play"></i>
+      </button>
+      <button class="btn btn-secondary" (click)="addSong(album.id)">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+    }
+  </div>
+</div>
+}
+ -->
+
+ <div class="container">
+    <div class="card" *ngFor="let album of albums">
+      <img src="{{ album.front }}" class="card-img-top" alt="{{ album.name }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ album.name }}</h5>
+        <p class="card-text">{{ album.createdAt | date: 'MMM d, y' }}</p>
+        <button class="btn btn-primary" (click)="playAlbum(album.id)">
+          <i class="fas fa-play"></i> 
+        </button>
+        <button class="btn btn-secondary" (click)="addSong(album.id)">
+          <i class="fas fa-plus"></i> 
+        </button>
+      </div>
+    </div>
+  </div>
